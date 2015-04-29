@@ -1,0 +1,70 @@
+body {
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+    line-height: 25px;
+}
+
+#bgimg {
+	z-index: -10;
+	position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#container {
+	width: 100%;
+	display: table;
+}
+
+#cell {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.sqr {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin: 3px 1px;
+	overflow: hidden;
+    -moz-transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+	-o-transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+	vertical-align: top;
+}
+
+.content {
+	margin: 0 10px 0;
+	line-height: 25px;
+}
+
+span {
+	width: inherit;
+	height: inherit;
+	line-height: 150px;
+	text-transform: uppercase;
+}
+
+#search {
+	margin: 10px 0 30px 0;
+	text-align: center;
+	line-height: 75px;
+}
+
+label {
+	text-align: left;
+	text-transform: uppercase;
+}
+
+#searchinput {
+    width: 500px;
+    height: 37px;
+	margin: 10px 0 0 0;
+    padding: 0 10px;
+    border: none;
+}
