@@ -37,12 +37,6 @@ $.getJSON("config.json", function(data) {
         "color": cfg[6]
     });
 
-	$("label").css({
-        "fontFamily": cfg[0],
-        "fontSize": cfg[2],
-        "color": cfg[6]
-    });
-
     $("a").css({
         "fontFamily": cfg[1],
         "fontSize": cfg[3],
@@ -109,8 +103,42 @@ window.onresize = function() {
 	evenContainerHeight();
 };
 
+function updateClock() {
+	var currentTime = new Date();
+
+	var currentHours = currentTime.getHours();
+
+	var greeting = "";
+
+	greeting = ((0 <= currentHours) && (currentHours < 6)) ? "Good Night" : "";
+	greeting = ((6 <= currentHours) && (currentHours < 12)) ? "Good Morning" : "";
+	greeting = ((12 <= currentHours) && (currentHours < 18)) ? "Good Afternoon" : "";
+	greeting = ((18 <= currentHours) && (currentHours < 22)) ? "Good Evening" : "";
+	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "";
+
+	var currentMinutes = currentTime.getMinutes();
+	var currentSeconds = currentTime.getSeconds();
+
+	currentMinutes = ((currentMinutes < 10) ? "0" : "") + currentMinutes;
+	currentSeconds = ((currentSeconds < 10) ? "0" : "") + currentSeconds;
+
+	var timeOfDay = (currentHours < 12) ? "am" : "pm";
+
+	currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+	currentHours = (currentHours == 0) ? 12 : currentHours;
+
+	var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+
+	document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+	document.getElementById("greeting").firstChild.nodeValue = greeting;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	evenContainerHeight();
+	updateClock();
+
+	setInterval("updateClock()", 10000);
+
     document.getElementById("searchinput").addEventListener("keypress", function search(a) {
         var key = a.keyCode;
 
@@ -193,10 +221,10 @@ function expand() {
     var icount = this.getElementsByTagName("input").length;
 
     if (icount >= 1) {
-        this.style.height = (300 + 37 * icount) + "px";
+        this.style.height = (220 + 37 * icount) + "px";
     }
     else {
-        this.style.height = (300 + 25 * acount) + "px";
+        this.style.height = (220 + 25 * acount) + "px";
     }
 
     if (window.cfg_bool[0]) {
