@@ -105,16 +105,23 @@ window.onresize = function() {
 
 function updateClock() {
 	var currentTime = new Date();
-
 	var currentHours = currentTime.getHours();
 
 	var greeting = "";
 
-	greeting = ((0 <= currentHours) && (currentHours < 6)) ? "Good Night" : "";
-	greeting = ((6 <= currentHours) && (currentHours < 12)) ? "Good Morning" : "";
-	greeting = ((12 <= currentHours) && (currentHours < 18)) ? "Good Afternoon" : "";
-	greeting = ((18 <= currentHours) && (currentHours < 22)) ? "Good Evening" : "";
-	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "";
+	// Seems like it's only executing the last if-statement
+	// Did I write something wrong?
+	/*greeting = ((0 <= currentHours) && (currentHours < 6)) ? "Good Night" : "1";
+	greeting = ((6 <= currentHours) && (currentHours < 12)) ? "Good Morning" : "2";
+	greeting = ((12 <= currentHours) && (currentHours < 18)) ? "Good Afternoon" : "3";
+	greeting = ((18 <= currentHours) && (currentHours < 22)) ? "Good Evening" : "4";
+	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "5";*/
+
+	if ((0 <= currentHours) && (currentHours < 6)) { greeting = "Good Night"; }
+	if ((6 <= currentHours) && (currentHours < 12)) { greeting = "Good Morning"; }
+	if ((12 <= currentHours) && (currentHours < 18)) { greeting = "Good Afternoon"; }
+	if ((18 <= currentHours) && (currentHours < 22)) { greeting = "Good Evening"; }
+	if ((22 <= currentHours) && (currentHours < 24)) { greeting = "Sleep Well"; }
 
 	var currentMinutes = currentTime.getMinutes();
 	var currentSeconds = currentTime.getSeconds();
