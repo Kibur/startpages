@@ -1,8 +1,8 @@
 startpage
 ====
 
-![example screenshot (150418)](https://i.imgur.com/WU5wngQ.png)
-![example screenshot expanded (150418)](https://i.imgur.com/ihojZtG.png)
+![example screenshot (150418)](https://i.imgur.com/5mZB16K.png)
+![example screenshot expanded (150418)](https://i.imgur.com/RfP5eKi.png)
 
 
 <br>
