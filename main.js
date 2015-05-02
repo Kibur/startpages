@@ -21,7 +21,8 @@ $.getJSON("config.json", function(data) {
         data.ext.right,
         data.ext.height,
         data.ext.width,
-        data.ext.opacity
+        data.ext.opacity,
+		data.clock.hour_format
     ];
 
     window.cfg_bool = [
@@ -129,12 +130,16 @@ function updateClock() {
 	currentMinutes = ((currentMinutes < 10) ? "0" : "") + currentMinutes;
 	currentSeconds = ((currentSeconds < 10) ? "0" : "") + currentSeconds;
 
-	var timeOfDay = (currentHours < 12) ? "am" : "pm";
+	var currentTimeString = currentHours + ":" + currentMinutes;
 
-	currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
-	currentHours = (currentHours == 0) ? 12 : currentHours;
+	if (window.cfg[19] == "12") {
+		var timeOfDay = (currentHours < 12) ? "am" : "pm";
 
-	var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+		currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+		currentHours = (currentHours == 0) ? 12 : currentHours;
+
+		currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+	}
 
 	document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 	document.getElementById("greeting").firstChild.nodeValue = greeting;

@@ -29,5 +29,9 @@
         "height":               "500px",
         "width":                "400px",
         "opacity":              ".2"
-    }
+    },
+
+	"clock": {
+		"hour_format":			"12"
+	}
 }
