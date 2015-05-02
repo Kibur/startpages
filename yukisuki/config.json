@@ -3,7 +3,7 @@
         "borders":              true,
         "simplesearch":         false,
         "alwaysopen":           false,
-        "mascot":               false
+        "mascot":               true
     },
     
     "style": {
@@ -23,11 +23,11 @@
     },
     
     "ext": {
-        "ref":                  "file://",
-        "bottom":               "0",
-        "right":                "0",
-        "height":               "500px",
-        "width":                "400px",
+        "ref":                  "img/impossible_triangle-logo.png",
+        "bottom":               "20px",
+        "right":                "20px",
+        "height":               "111px",
+        "width":                "127px",
         "opacity":              ".2"
     },
 
