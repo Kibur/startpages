@@ -104,6 +104,34 @@ window.onresize = function() {
 	evenContainerHeight();
 };
 
+function changeMascot(imgPath) {
+	if (window.cfg_bool[3]) {
+		imgPath = (imgPath == "") ? window.cfg[13] : imgPath;
+
+		if (imgPath == window.cfg[13]) {
+		    $("#bgimg").css({
+		        "backgroundImage": "url('" + imgPath + "')",
+		        "height": window.cfg[16],
+		        "width": window.cfg[17],
+		        "opacity": window.cfg[18]
+		    });
+		}
+		else {
+			$("#bgimg").css({
+		        "backgroundImage": "url('" + imgPath + "')",
+		        "height": "117px",
+		        "width": "127px",
+		        "opacity": "0.5"
+		    });
+		}
+    }
+    else {
+        $("#bgimg").css({
+            "backgroundImage": ""
+        });
+    }
+}
+
 function updateClock() {
 	var currentTime = new Date();
 	var currentHours = currentTime.getHours();
@@ -118,9 +146,35 @@ function updateClock() {
 	greeting = ((18 <= currentHours) && (currentHours < 22)) ? "Good Evening" : "4";
 	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "5";*/
 
-	if ((0 <= currentHours) && (currentHours < 6)) { greeting = "Good Night"; }
+	if ((0 <= currentHours) && (currentHours < 6)) {
+		switch (currentHours) {
+			case 0:
+				greeting = "Midnight";
+				break;
+			default:
+				greeting = "Good Night";
+				break;
+		}
+	}
+
 	if ((6 <= currentHours) && (currentHours < 12)) { greeting = "Good Morning"; }
-	if ((12 <= currentHours) && (currentHours < 18)) { greeting = "Good Afternoon"; }
+
+	if ((12 <= currentHours) && (currentHours < 18)) {
+		switch (currentHours) {
+			case 12:
+				greeting = "Noon";
+				break;
+			case 16:
+				greeting = "Good Afternoon";
+				changeMascot("img/waffle.png");
+				break;
+			default:
+				greeting = "Good Afternoon";
+				changeMascot(window.cfg[13]);
+				break;
+		}
+	}
+
 	if ((18 <= currentHours) && (currentHours < 22)) { greeting = "Good Evening"; }
 	if ((22 <= currentHours) && (currentHours < 24)) { greeting = "Sleep Well"; }
 
