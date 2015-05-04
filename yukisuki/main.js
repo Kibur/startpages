@@ -89,6 +89,8 @@ $.getJSON("config.json", function(data) {
             "backgroundImage": ""
         });
     }
+}).done(function() {
+	updateClock();
 });
 
 function evenContainerHeight() {
@@ -201,7 +203,6 @@ function updateClock() {
 
 document.addEventListener("DOMContentLoaded", function() {
 	evenContainerHeight();
-	updateClock();
 
 	setInterval("updateClock()", 10000);
 
