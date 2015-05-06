@@ -288,10 +288,10 @@ function expand() {
     var icount = this.getElementsByTagName("input").length;
 
     if (icount >= 1) {
-        this.style.height = (220 + 37 * icount) + "px";
+        this.style.height = (200 + 37 * icount) + "px";
     }
     else {
-        this.style.height = (220 + 25 * acount) + "px";
+        this.style.height = (200 + 25 * acount) + "px";
     }
 
     if (window.cfg_bool[0]) {
