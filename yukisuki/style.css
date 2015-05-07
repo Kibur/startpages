@@ -1,7 +1,8 @@
 body {
 	overflow: hidden;
 	background-image: url('img/water-drop-on-a-plant.jpg');
-	background-size: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
 	margin: 0;
 	padding: 0;
 }
