@@ -9,9 +9,9 @@
     "style": {
         "heading_font":         "tewi",
         "link_font":            "tewi",
-        "heading_font_size":    "10px",
-        "link_font_size":       "10px",
-        "background":           "#19191b",
+        "heading_font_size":    "11px",
+        "link_font_size":       "11px",
+        "background":           "#cacaca",
         "foreground":           "#121212",
         "heading_color":        "#5e8d3b",
         "link_color":           "#999999",
