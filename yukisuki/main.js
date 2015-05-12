@@ -1,5 +1,7 @@
 window.cfg = [];
 window.cfg_bool = [];
+window.cfg_wallpapers = [];
+window.bgimages = [];
 
 $.getJSON("config.json", function(data) {
     window.cfg = [
@@ -29,8 +31,20 @@ $.getJSON("config.json", function(data) {
         data.bool.borders,
         data.bool.simplesearch,
         data.bool.alwaysopen,
-        data.bool.mascot
+        data.bool.mascot,
+		data.bool.wallpaper
     ];
+
+	window.cfg_wallpapers = [
+		data.wallpapers.morning,
+		data.wallpapers.late_morning,
+		data.wallpapers.afternoon,
+		data.wallpapers.late_afternoon,
+		data.wallpapers.evening,
+		data.wallpapers.late_evening,
+		data.wallpapers.night,
+		data.wallpapers.late_night
+	];
 
     $("span").css({
         "fontFamily": cfg[0],
@@ -90,6 +104,10 @@ $.getJSON("config.json", function(data) {
         });
     }
 }).done(function() {
+	if (window.cfg_bool[4]) {
+		imagePreloader(window.cfg_wallpapers);
+	}
+
 	updateClock();
 });
 
@@ -149,6 +167,8 @@ function updateClock() {
 	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "5";*/
 
 	if ((0 <= currentHours) && (currentHours < 6)) {
+		changeWallpaper(window.bgimages[6]);
+
 		switch (currentHours) {
 			case 0:
 				greeting = "Midnight";
@@ -159,9 +179,14 @@ function updateClock() {
 		}
 	}
 
-	if ((6 <= currentHours) && (currentHours < 12)) { greeting = "Good Morning"; }
+	if ((6 <= currentHours) && (currentHours < 12)) {
+		changeWallpaper(window.bgimages[0]);
+		greeting = "Good Morning";
+	}
 
 	if ((12 <= currentHours) && (currentHours < 18)) {
+		changeWallpaper(window.bgimages[2]);
+
 		switch (currentHours) {
 			case 12:
 				greeting = "Noon";
@@ -177,8 +202,15 @@ function updateClock() {
 		}
 	}
 
-	if ((18 <= currentHours) && (currentHours < 22)) { greeting = "Good Evening"; }
-	if ((22 <= currentHours) && (currentHours < 24)) { greeting = "Sleep Well"; }
+	if ((18 <= currentHours) && (currentHours < 22)) {
+		changeWallpaper(window.bgimages[4]);
+		greeting = "Good Evening";
+	}
+
+	if ((22 <= currentHours) && (currentHours < 24)) {
+		changeWallpaper(window.bgimages[5]);
+		greeting = "Sleep Well";
+	}
 
 	var currentMinutes = currentTime.getMinutes();
 	var currentSeconds = currentTime.getSeconds();
@@ -201,10 +233,34 @@ function updateClock() {
 	document.getElementById("greeting").firstChild.nodeValue = greeting;
 }
 
+function changeWallpaper(bgimg) {
+	$("body").css({
+		"backgroundImage": "url(" + bgimg.src + ")"
+	});
+}
+
+function imagePreloader(images) {
+	var l = images.length - 1;
+
+	for (var i = l; i > 0; i--) {
+		var bgimg = new Image();
+		bgimg.src = images[i];
+		/*bgimg.onload = function() {
+			$("body").css({
+				"backgroundImage": "url(" + this.src + ")"
+			});
+		};*/
+
+		window.bgimages[i] = bgimg;
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	evenContainerHeight();
 
-	setInterval("updateClock()", 10000);
+	setInterval(function () {
+		updateClock();
+	}, 10000);
 
     document.getElementById("searchinput").addEventListener("keypress", function search(a) {
         var key = a.keyCode;

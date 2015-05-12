@@ -3,7 +3,8 @@
         "borders":              true,
         "simplesearch":         false,
         "alwaysopen":           false,
-        "mascot":               true
+        "mascot":               true,
+		"wallpaper":			true
     },
     
     "style": {
@@ -33,5 +34,16 @@
 
 	"clock": {
 		"hour_format":			"12"
+	},
+
+	"wallpapers": {
+		"morning": 				"img/8bit_day/01-Morning.png",
+		"late_morning": 		"img/8bit_day/02-Late-Morning.png",
+		"afternoon": 			"img/8bit_day/03-Afternoon.png",
+		"late_afternoon": 		"img/8bit_day/04-Late-Afternoon.png",
+		"evening": 				"img/8bit_day/05-Evening.png",
+		"late_evening": 		"img/8bit_day/06-Late-Evening.png",
+		"night": 				"img/8bit_day/07-Night.png",
+		"late_night": 			"img/8bit_day/08-Late-Night.png"
 	}
 }
