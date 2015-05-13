@@ -213,7 +213,7 @@ function updateClock() {
 	}
 
 	if ((18 <= currentHours) && (currentHours < 22)) {
-		if ((18 <= currentHours && (currentHours < 20)) {
+		if ((18 <= currentHours) && (currentHours < 20)) {
 			changeWallpaper(window.bgimages[3]);
 		}
 		else changeWallpaper(window.bgimages[4]);
