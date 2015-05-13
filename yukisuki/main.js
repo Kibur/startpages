@@ -167,10 +167,7 @@ function updateClock() {
 	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "5";*/
 
 	if ((0 <= currentHours) && (currentHours < 6)) {
-		if ((0 <= currentHours) && (currentHours < 3)) {
-			changeWallpaper(window.bgimages[6]);
-		}
-		else changeWallpaper(window.bgimages[7]);
+		changeWallpaper(window.bgimages[7]);
 
 		switch (currentHours) {
 			case 0:
@@ -213,16 +210,19 @@ function updateClock() {
 	}
 
 	if ((18 <= currentHours) && (currentHours < 22)) {
-		if ((18 <= currentHours) && (currentHours < 20)) {
+		if ((18 <= currentHours) && (currentHours < 19)) {
 			changeWallpaper(window.bgimages[3]);
 		}
-		else changeWallpaper(window.bgimages[4]);
+		else if ((19 <= currentHours) && (currentHours < 20)) {
+			changeWallpaper(window.bgimages[4]);
+		}
+		else changeWallpaper(window.bgimages[5]);
 
 		greeting = "Good Evening";
 	}
 
 	if ((22 <= currentHours) && (currentHours < 24)) {
-		changeWallpaper(window.bgimages[5]);
+		changeWallpaper(window.bgimages[6]);
 		greeting = "Sleep Well";
 	}
 
