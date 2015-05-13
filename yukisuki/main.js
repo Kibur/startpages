@@ -242,7 +242,7 @@ function changeWallpaper(bgimg) {
 function imagePreloader(images) {
 	var l = images.length - 1;
 
-	for (var i = l; i > 0; i--) {
+	for (var i = l; i >= 0; i--) {
 		var bgimg = new Image();
 		bgimg.src = images[i];
 		/*bgimg.onload = function() {
