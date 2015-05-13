@@ -167,7 +167,10 @@ function updateClock() {
 	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "5";*/
 
 	if ((0 <= currentHours) && (currentHours < 6)) {
-		changeWallpaper(window.bgimages[6]);
+		if ((0 <= currentHours) && (currentHours < 3)) {
+			changeWallpaper(window.bgimages[6]);
+		}
+		else changeWallpaper(window.bgimages[7]);
 
 		switch (currentHours) {
 			case 0:
@@ -180,12 +183,19 @@ function updateClock() {
 	}
 
 	if ((6 <= currentHours) && (currentHours < 12)) {
-		changeWallpaper(window.bgimages[0]);
+		if ((6 <= currentHours) && (currentHours < 9)) {
+			changeWallpaper(window.bgimages[0]);
+		}
+		else changeWallpaper(window.bgimages[1]);
+
 		greeting = "Good Morning";
 	}
 
 	if ((12 <= currentHours) && (currentHours < 18)) {
-		changeWallpaper(window.bgimages[2]);
+		if ((12 <= currentHours) && (currentHours < 15)) {
+			changeWallpaper(window.bgimages[2]);
+		}
+		else changeWallpaper(window.bgimages[3]);
 
 		switch (currentHours) {
 			case 12:
@@ -381,4 +391,5 @@ String.prototype.replaceChars = function(character, replacement) {
 window.onunload = function() {
     delete window.cfg;
     delete window.cfg_bool;
+	delete window.cfg_wallpapers;
 };
