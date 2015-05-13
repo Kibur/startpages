@@ -192,7 +192,7 @@ function updateClock() {
 	}
 
 	if ((12 <= currentHours) && (currentHours < 18)) {
-		if ((12 <= currentHours) && (currentHours < 15)) {
+		if ((12 <= currentHours) && (currentHours < 17)) {
 			changeWallpaper(window.bgimages[2]);
 		}
 		else changeWallpaper(window.bgimages[3]);
@@ -213,7 +213,11 @@ function updateClock() {
 	}
 
 	if ((18 <= currentHours) && (currentHours < 22)) {
-		changeWallpaper(window.bgimages[4]);
+		if ((18 <= currentHours && (currentHours < 20)) {
+			changeWallpaper(window.bgimages[3]);
+		}
+		else changeWallpaper(window.bgimages[4]);
+
 		greeting = "Good Evening";
 	}
 
