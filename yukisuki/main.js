@@ -248,9 +248,11 @@ function updateClock() {
 }
 
 function changeWallpaper(bgimg) {
-	$("body").css({
-		"backgroundImage": "url(" + bgimg.src + ")"
-	});
+	if (window.cfg_bool[4]) {
+		$("body").css({
+			"backgroundImage": "url(" + bgimg.src + ")"
+		});
+	}
 }
 
 function imagePreloader(images) {
