@@ -43,6 +43,7 @@ $.getJSON("config.json", function(data) {
 		data.wallpapers.evening,
 		data.wallpapers.late_evening,
 		data.wallpapers.night,
+		data.wallpapers.city_night,
 		data.wallpapers.late_night
 	];
 
@@ -167,7 +168,9 @@ function updateClock() {
 	greeting = ((22 <= currentHours) && (currentHours < 24)) ? "Sleep Well" : "5";*/
 
 	if ((0 <= currentHours) && (currentHours < 6)) {
-		changeWallpaper(window.bgimages[7]);
+		if ((0 <= currentHours) && (currentHours < 5)) {
+			changeWallpaper(window.bgimages[7]);
+		} else changeWallpaper(window.bgimages[8]);
 
 		switch (currentHours) {
 			case 0:
